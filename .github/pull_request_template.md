@@ -10,9 +10,9 @@ Closes #
 
 <!-- Pasos para que el revisor lo pruebe. Ejemplo:
 1. Ejecutar python main.py
-2. Elegir la opción 7
-3. Ingresar 10, 20
-4. Debería mostrar 6.67 µF -->
+2. Elegir la opción 6
+3. Ingresar 12000, 3 cuotas, 0% de interés
+4. Debería mostrar $4000.00 por cuota -->
 
 ## Checklist
 

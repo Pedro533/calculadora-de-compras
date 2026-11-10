@@ -1,19 +1,18 @@
-# ⚡ Calculadora Eléctrica
+# 🛒 Calculadora de Compras
 
-Calculadora de consola, escrita en Python, para resolver cálculos básicos de circuitos eléctricos.
+Calculadora de consola, escrita en Python, para hacer las cuentas de todos los días: sumar lo que compraste, aplicar descuentos, agregar el IVA, dividir la cuenta con amigos y calcular el vuelto.
 
 Es un proyecto abierto: **cualquiera puede proponer mejoras** haciendo un fork y enviando un Pull Request. Antes de contribuir, leé la [guía de contribución](CONTRIBUTING.md).
 
 ## Funciones disponibles
 
-| Opción | Cálculo | Fórmula |
+| Opción | Qué hace | Ejemplo |
 |---|---|---|
-| 1 | Tensión | V = I × R |
-| 2 | Corriente | I = V / R |
-| 3 | Resistencia | R = V / I |
-| 4 | Potencia | P = V × I |
-| 5 | Resistencias en serie | Rt = R1 + R2 + … |
-| 6 | Resistencias en paralelo | 1/Rt = 1/R1 + 1/R2 + … |
+| 1 | Sumar compras | $100, $250, $50 → $400 |
+| 2 | Aplicar un descuento | $1000 con 10% → $900 |
+| 3 | Agregar IVA (21%) | $1000 → $1210 |
+| 4 | Dividir la cuenta entre amigos | $12000 entre 4 → $3000 cada uno |
+| 5 | Calcular el vuelto | Total $750, paga con $1000 → $250 |
 
 ## Requisitos
 
@@ -23,26 +22,26 @@ Es un proyecto abierto: **cualquiera puede proponer mejoras** haciendo un fork y
 ## Cómo usarla
 
 ```bash
-git clone https://github.com/Pedro533/calculadora-electrica.git
-cd calculadora-electrica
+git clone https://github.com/Pedro533/calculadora-de-compras.git
+cd calculadora-de-compras
 python main.py
 ```
 
 Ejemplo de uso:
 
 ```
-===== CALCULADORA ELÉCTRICA =====
-1. Calcular tensión (V = I x R)
+===== CALCULADORA DE COMPRAS =====
+1. Sumar compras
 ...
-Elegí una opción: 1
-Corriente (A): 2
-Resistencia (ohm): 6
-Tensión = 12.00 V
+Elegí una opción: 4
+Total de la cuenta ($): 12000
+Cantidad de personas: 4
+Paga cada uno = $3000.00
 ```
 
 ## Cómo correr los tests
 
-Los tests verifican que cada cálculo dé el resultado correcto.
+Los tests verifican que cada cuenta dé el resultado correcto.
 
 ```bash
 pip install -r requirements.txt
@@ -54,8 +53,8 @@ Si todo está bien vas a ver algo como `6 passed`.
 ## Estructura del proyecto
 
 ```
-calculadora-electrica/
-├── calculadora.py        # Funciones de cálculo
+calculadora-de-compras/
+├── calculadora.py        # Funciones que hacen las cuentas
 ├── main.py               # Menú para el usuario
 ├── tests/
 │   └── test_calculadora.py   # Tests automáticos

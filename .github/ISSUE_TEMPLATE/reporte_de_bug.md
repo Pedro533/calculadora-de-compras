@@ -18,7 +18,7 @@ assignees: ''
 
 ## Resultado esperado
 
-<!-- ¿Qué debería pasar? Si es un cálculo, mostrá la cuenta. -->
+<!-- ¿Qué debería pasar? Si es una cuenta, mostrá cómo la hiciste a mano. -->
 
 ## Resultado obtenido
 

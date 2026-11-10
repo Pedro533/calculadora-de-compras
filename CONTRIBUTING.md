@@ -1,6 +1,6 @@
 # Guía de contribución
 
-¡Gracias por querer mejorar la Calculadora Eléctrica! Este documento explica cómo trabajamos.
+¡Gracias por querer mejorar la Calculadora de Compras! Este documento explica cómo trabajamos.
 
 ## Roles
 
@@ -25,14 +25,14 @@
 2. Clonar **tu fork**:
 
 ```bash
-git clone https://github.com/TU-USUARIO/calculadora-electrica.git
-cd calculadora-electrica
+git clone https://github.com/TU-USUARIO/calculadora-de-compras.git
+cd calculadora-de-compras
 ```
 
 3. Conectar con el repositorio original (**upstream**):
 
 ```bash
-git remote add upstream https://github.com/Pedro533/calculadora-electrica.git
+git remote add upstream https://github.com/Pedro533/calculadora-de-compras.git
 git remote -v
 ```
 
@@ -52,7 +52,7 @@ git push origin main
 Nombre de la rama: `tipo/numero-descripcion-corta`
 
 ```bash
-git checkout -b feature/3-capacitores
+git checkout -b feature/1-cuotas
 ```
 
 | Tipo | Para qué |
@@ -66,7 +66,7 @@ git checkout -b feature/3-capacitores
 
 ```bash
 git add calculadora.py tests/test_calculadora.py
-git commit -m "Agrega cálculo de capacitores en serie"
+git commit -m "Agrega cálculo de cuotas"
 ```
 
 **Mensajes de commit:**
@@ -77,8 +77,8 @@ git commit -m "Agrega cálculo de capacitores en serie"
 | ✅ Bien | ❌ Mal |
 |---|---|
 | `Agrega validación de valores negativos` | `cambios` |
-| `Corrige fórmula de resistencias en paralelo` | `arreglé cosas` |
-| `Agrega test para caída de tensión` | `asdf` |
+| `Corrige el cálculo del descuento` | `arreglé cosas` |
+| `Agrega test para el vuelto` | `asdf` |
 
 ### 5. Correr los tests
 
@@ -89,12 +89,12 @@ python -m pytest
 ### 6. Subir la rama y abrir el Pull Request
 
 ```bash
-git push origin feature/3-capacitores
+git push origin feature/1-cuotas
 ```
 
 En GitHub: **Compare & pull request** → completar la plantilla → **Create pull request**.
 
-En la descripción escribí `Closes #3` (con el número del Issue) para que se cierre solo al mergear.
+En la descripción escribí `Closes #1` (con el número del Issue) para que se cierre solo al mergear.
 
 ### 7. Si te piden cambios
 
@@ -119,6 +119,6 @@ python main.py
 ## Reportar un bug
 
 Abrí un Issue con la plantilla **Reporte de bug** y contá:
-- Qué hiciste (valores de entrada)
+- Qué opción usaste y qué valores escribiste
 - Qué esperabas que pasara
 - Qué pasó en realidad

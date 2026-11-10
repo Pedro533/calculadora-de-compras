@@ -1,5 +1,5 @@
 """
-Tests de la calculadora eléctrica.
+Tests de la calculadora de compras.
 
 Ejecutar con:
     python -m pytest
@@ -8,45 +8,46 @@ Cada función de calculadora.py debería tener al menos un test acá.
 """
 
 from calculadora import (
-    calcular_tension,
-    calcular_corriente,
-    calcular_resistencia,
-    calcular_potencia,
-    resistencias_serie,
+    sumar_compras,
+    agregar_iva,
+    dividir_cuenta,
+    calcular_vuelto,
 )
 
 
-# ----- Ley de Ohm -----
+# ----- Sumar compras -----
 
-def test_tension():
-    # 2 A circulando por 6 Ω -> 12 V
-    assert calcular_tension(2, 6) == 12
-
-
-def test_corriente():
-    # 12 V sobre 4 Ω -> 3 A
-    assert calcular_corriente(12, 4) == 3
+def test_sumar_compras():
+    # $100 + $250 + $50 = $400
+    assert sumar_compras([100, 250, 50]) == 400
 
 
-def test_resistencia():
-    # 220 V con 2 A -> 110 Ω
-    assert calcular_resistencia(220, 2) == 110
+def test_sumar_compras_un_solo_producto():
+    # Si compro una sola cosa, el total es su precio
+    assert sumar_compras([780]) == 780
 
 
-# ----- Potencia -----
+# ----- IVA -----
 
-def test_potencia():
-    # 12 V y 5 A -> 60 W
-    assert calcular_potencia(12, 5) == 60
-
-
-# ----- Resistencias -----
-
-def test_resistencias_serie():
-    # 100 + 220 + 330 = 650 Ω
-    assert resistencias_serie([100, 220, 330]) == 650
+def test_agregar_iva():
+    # $1000 + 21% de IVA = $1210
+    assert round(agregar_iva(1000), 2) == 1210
 
 
-def test_resistencias_serie_una_sola():
-    # Una sola resistencia: el equivalente es ella misma
-    assert resistencias_serie([470]) == 470
+# ----- Dividir la cuenta -----
+
+def test_dividir_cuenta():
+    # $12000 entre 4 amigos = $3000 cada uno
+    assert dividir_cuenta(12000, 4) == 3000
+
+
+# ----- Vuelto -----
+
+def test_calcular_vuelto():
+    # Total $750, paga con $1000 -> vuelto $250
+    assert calcular_vuelto(750, 1000) == 250
+
+
+def test_calcular_vuelto_justo():
+    # Paga justo -> no hay vuelto
+    assert calcular_vuelto(500, 500) == 0

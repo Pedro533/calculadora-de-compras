@@ -1,17 +1,16 @@
 """
-Menú de la calculadora eléctrica.
+Menú de la calculadora de compras.
 
 Ejecutar con:
     python main.py
 """
 
 from calculadora import (
-    calcular_tension,
-    calcular_corriente,
-    calcular_resistencia,
-    calcular_potencia,
-    resistencias_serie,
-    resistencias_paralelo,
+    sumar_compras,
+    aplicar_descuento,
+    agregar_iva,
+    dividir_cuenta,
+    calcular_vuelto,
 )
 
 
@@ -32,13 +31,12 @@ def pedir_lista(mensaje):
 
 def mostrar_menu():
     print()
-    print("===== CALCULADORA ELÉCTRICA =====")
-    print("1. Calcular tensión (V = I x R)")
-    print("2. Calcular corriente (I = V / R)")
-    print("3. Calcular resistencia (R = V / I)")
-    print("4. Calcular potencia (P = V x I)")
-    print("5. Resistencias en serie")
-    print("6. Resistencias en paralelo")
+    print("===== CALCULADORA DE COMPRAS =====")
+    print("1. Sumar compras")
+    print("2. Aplicar un descuento")
+    print("3. Agregar IVA (21%)")
+    print("4. Dividir la cuenta entre amigos")
+    print("5. Calcular el vuelto")
     print("0. Salir")
 
 
@@ -48,32 +46,27 @@ def main():
         opcion = input("Elegí una opción: ")
 
         if opcion == "1":
-            i = pedir_numero("Corriente (A): ")
-            r = pedir_numero("Resistencia (ohm): ")
-            print(f"Tensión = {calcular_tension(i, r):.2f} V")
+            precios = pedir_lista("Precios separados por coma ($): ")
+            print(f"Total = ${sumar_compras(precios):.2f}")
 
         elif opcion == "2":
-            v = pedir_numero("Tensión (V): ")
-            r = pedir_numero("Resistencia (ohm): ")
-            print(f"Corriente = {calcular_corriente(v, r):.2f} A")
+            precio = pedir_numero("Precio ($): ")
+            porcentaje = pedir_numero("Descuento (%): ")
+            print(f"Precio con descuento = ${aplicar_descuento(precio, porcentaje):.2f}")
 
         elif opcion == "3":
-            v = pedir_numero("Tensión (V): ")
-            i = pedir_numero("Corriente (A): ")
-            print(f"Resistencia = {calcular_resistencia(v, i):.2f} ohm")
+            precio = pedir_numero("Precio sin IVA ($): ")
+            print(f"Precio con IVA = ${agregar_iva(precio):.2f}")
 
         elif opcion == "4":
-            v = pedir_numero("Tensión (V): ")
-            i = pedir_numero("Corriente (A): ")
-            print(f"Potencia = {calcular_potencia(v, i):.2f} W")
+            total = pedir_numero("Total de la cuenta ($): ")
+            personas = pedir_numero("Cantidad de personas: ")
+            print(f"Paga cada uno = ${dividir_cuenta(total, personas):.2f}")
 
         elif opcion == "5":
-            lista = pedir_lista("Resistencias separadas por coma (ohm): ")
-            print(f"Resistencia equivalente = {resistencias_serie(lista):.2f} ohm")
-
-        elif opcion == "6":
-            lista = pedir_lista("Resistencias separadas por coma (ohm): ")
-            print(f"Resistencia equivalente = {resistencias_paralelo(lista):.2f} ohm")
+            total = pedir_numero("Total a pagar ($): ")
+            pagado = pedir_numero("Con cuánto paga el cliente ($): ")
+            print(f"Vuelto = ${calcular_vuelto(total, pagado):.2f}")
 
         elif opcion == "0":
             print("¡Hasta luego!")

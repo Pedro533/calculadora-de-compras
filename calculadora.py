@@ -1,68 +1,45 @@
 """
-Calculadora eléctrica
-=====================
+Calculadora de compras
+======================
 
-Funciones para resolver cálculos básicos de circuitos eléctricos.
+Funciones para hacer cuentas de todos los días:
+sumar compras, descuentos, IVA, dividir la cuenta y calcular el vuelto.
 
-Unidades que usa todo el módulo:
-    tensión     -> volts   (V)
-    corriente   -> amperes (A)
-    resistencia -> ohms    (Ω)
-    potencia    -> watts   (W)
+Todos los precios están en pesos ($).
 """
 
 
-# ---------------------------------------------------------------
-# Ley de Ohm
-# ---------------------------------------------------------------
-
-def calcular_tension(corriente, resistencia):
-    """Ley de Ohm: V = I x R. Devuelve la tensión en volts."""
-    return corriente * resistencia
-
-
-def calcular_corriente(tension, resistencia):
-    """Ley de Ohm: I = V / R. Devuelve la corriente en amperes."""
-    return tension / resistencia
-
-
-def calcular_resistencia(tension, corriente):
-    """Ley de Ohm: R = V / I. Devuelve la resistencia en ohms."""
-    return tension / corriente
-
-
-# ---------------------------------------------------------------
-# Potencia
-# ---------------------------------------------------------------
-
-def calcular_potencia(tension, corriente):
-    """Potencia eléctrica: P = V x I. Devuelve la potencia en watts."""
-    return tension * corriente
-
-
-# ---------------------------------------------------------------
-# Asociación de resistencias
-# ---------------------------------------------------------------
-
-def resistencias_serie(resistencias):
+def sumar_compras(precios):
     """
-    Resistencia equivalente en serie: Rt = R1 + R2 + R3 + ...
+    Suma el precio de todos los productos comprados.
 
-    Recibe una lista de valores en ohms, por ejemplo [100, 220, 330].
+    Recibe una lista de precios, por ejemplo [100, 250, 50].
     """
     total = 0
-    for r in resistencias:
-        total = total + r
+    for precio in precios:
+        total = total + precio
     return total
 
 
-def resistencias_paralelo(resistencias):
+def aplicar_descuento(precio, porcentaje):
     """
-    Resistencia equivalente en paralelo: 1/Rt = 1/R1 + 1/R2 + 1/R3 + ...
+    Devuelve el precio final después de aplicar un descuento.
 
-    Recibe una lista de valores en ohms, por ejemplo [100, 100].
+    porcentaje: el descuento en %, por ejemplo 10 para un 10% de descuento.
     """
-    suma_inversas = 0
-    for r in resistencias:
-        suma_inversas = suma_inversas + 1 / r
-    return suma_inversas
+    return precio - porcentaje
+
+
+def agregar_iva(precio):
+    """Devuelve el precio con el IVA (21%) incluido."""
+    return precio * 1.21
+
+
+def dividir_cuenta(total, personas):
+    """Divide el total de la cuenta en partes iguales entre las personas."""
+    return total / personas
+
+
+def calcular_vuelto(total, pagado):
+    """Devuelve cuánto vuelto hay que dar: lo que pagó el cliente menos el total."""
+    return pagado - total

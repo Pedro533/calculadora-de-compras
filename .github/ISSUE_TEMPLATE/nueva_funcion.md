@@ -10,9 +10,9 @@ assignees: ''
 
 <!-- Describí la función nueva. -->
 
-## Fórmula
+## Cómo se calcula
 
-<!-- Ejemplo: Ct = C1 + C2 + ... -->
+<!-- Ejemplo: precio final = precio + precio x interés / 100 -->
 
 ## Ejemplo de uso
 
