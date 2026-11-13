@@ -51,3 +51,8 @@ def test_calcular_vuelto():
 def test_calcular_vuelto_justo():
     # Paga justo -> no hay vuelto
     assert calcular_vuelto(500, 500) == 0
+
+
+def test_dividir_cuenta_ok():
+    # Test para asegurar que la división normal sigue funcionando
+    assert dividir_cuenta(1000, 2) == 500
