@@ -13,20 +13,40 @@ from calculadora import (
     calcular_vuelto,
 )
 
-
 def pedir_numero(mensaje):
-    """Pide un número al usuario y lo devuelve como float."""
-    texto = input(mensaje)
-    return float(texto)
+    """Pide un número al usuario y lo devuelve como float. Valida que no sea negativo."""
+    while True:
+        texto = input(mensaje)
+        try:
+            numero = float(texto)
+        except ValueError:
+            print("Eso no es un número, probá de nuevo.")
+            continue
+        
+        if numero < 0:
+            print("El valor no puede ser negativo.")
+            continue
+            
+        return numero
 
 
 def pedir_lista(mensaje):
-    """Pide varios números separados por coma y los devuelve en una lista."""
-    texto = input(mensaje)
-    valores = []
-    for parte in texto.split(","):
-        valores.append(float(parte))
-    return valores
+    """Pide varios números separados por coma. Valida que sean números y no negativos."""
+    while True:
+        texto = input(mensaje)
+        try:
+            valores = []
+            for parte in texto.split(","):
+                numero = float(parte.strip())
+                if numero < 0:
+                    print("El valor no puede ser negativo.")
+                    raise ValueError("Negativo") # Forzamos el error para que vuelva a pedir
+                valores.append(numero)
+            return valores
+        except ValueError:
+            print("Eso no es un número, probá de nuevo.")
+
+
 
 
 def mostrar_menu():
@@ -60,9 +80,16 @@ def main():
 
         elif opcion == "4":
             total = pedir_numero("Total de la cuenta ($): ")
-            personas = pedir_numero("Cantidad de personas: ")
+            while True:
+                personas = pedir_numero("Cantidad de personas: ")
+                if personas == 0:
+                    print("Tiene que haber al menos una persona.")
+                    continue
+                break
+            
             print(f"Paga cada uno = ${dividir_cuenta(total, personas):.2f}")
-
+        
+      
         elif opcion == "5":
             total = pedir_numero("Total a pagar ($): ")
             pagado = pedir_numero("Con cuánto paga el cliente ($): ")
