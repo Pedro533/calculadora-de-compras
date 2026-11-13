@@ -11,6 +11,7 @@ from calculadora import (
     agregar_iva,
     dividir_cuenta,
     calcular_vuelto,
+    calcular_cuotas,
 )
 
 
@@ -37,6 +38,7 @@ def mostrar_menu():
     print("3. Agregar IVA (21%)")
     print("4. Dividir la cuenta entre amigos")
     print("5. Calcular el vuelto")
+    print("6. Calcular cuotas")
     print("0. Salir")
 
 
@@ -67,6 +69,13 @@ def main():
             total = pedir_numero("Total a pagar ($): ")
             pagado = pedir_numero("Con cuánto paga el cliente ($): ")
             print(f"Vuelto = ${calcular_vuelto(total, pagado):.2f}")
+
+        elif opcion == "6":
+            precio = pedir_numero("Precio de la compra ($): ")
+            cuotas = pedir_numero("Cantidad de cuotas: ")
+            interes = pedir_numero("Interés (%): ")
+            valor_cuota = calcular_cuotas(precio, cuotas, interes)
+            print(f"Valor de cada cuota = ${valor_cuota:.2f}")
 
         elif opcion == "0":
             print("¡Hasta luego!")
