@@ -43,3 +43,15 @@ def dividir_cuenta(total, personas):
 def calcular_vuelto(total, pagado):
     """Devuelve cuánto vuelto hay que dar: lo que pagó el cliente menos el total."""
     return pagado - total
+
+
+def calcular_cuotas(precio, cuotas, interes):
+    """
+    Calcula el valor de cada cuota de una compra.
+
+    precio: precio original del producto.
+    cuotas: cantidad de cuotas.
+    interes: porcentaje de interés aplicado.
+    """
+    precio_final = precio + (precio * interes / 100)
+    return precio_final / cuotas

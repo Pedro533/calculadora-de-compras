@@ -12,6 +12,7 @@ from calculadora import (
     agregar_iva,
     dividir_cuenta,
     calcular_vuelto,
+    calcular_cuotas,
 )
 
 
@@ -51,3 +52,20 @@ def test_calcular_vuelto():
 def test_calcular_vuelto_justo():
     # Paga justo -> no hay vuelto
     assert calcular_vuelto(500, 500) == 0
+
+
+# ----- Calcular cuotas -----
+
+def test_calcular_cuotas_sin_interes():
+    # $12000 en 3 cuotas sin interés = $4000 cada cuota
+    assert calcular_cuotas(12000, 3, 0) == 4000
+
+
+def test_calcular_cuotas_con_interes():
+    # $12000 en 6 cuotas con 10% de interés = $2200 cada cuota
+    assert calcular_cuotas(12000, 6, 10) == 2200
+
+
+def test_calcular_cuotas_con_interes_del_20():
+    # $9000 en 3 cuotas con 20% de interés = $3600 cada cuota
+    assert calcular_cuotas(9000, 3, 20) == 3600
