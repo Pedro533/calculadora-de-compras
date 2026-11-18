@@ -144,12 +144,18 @@ def main():
         elif opcion == "7":
             pesos = pedir_numero("Cantidad en pesos ($): ")
             cotizacion = pedir_numero("Cotización del día (pesos por 1 dólar): ")
-            print(f"Resultado = US${pesos_a_dolares(pesos, cotizacion):.2f}")
+            try:
+                print(f"Resultado = US${pesos_a_dolares(pesos, cotizacion):.2f}")
+            except ValueError as error:
+                print(f"Error: {error}")
 
         elif opcion == "8":
             dolares = pedir_numero("Cantidad en dólares (US$): ")
             cotizacion = pedir_numero("Cotización del día (pesos por 1 dólar): ")
-            print(f"Resultado = ${dolares_a_pesos(dolares, cotizacion):.2f}")
+            try:
+                print(f"Resultado = ${dolares_a_pesos(dolares, cotizacion):.2f}")
+            except ValueError as error:
+                print(f"Error: {error}")
 
         elif opcion == "0":
             print("¡Hasta luego!")

@@ -48,11 +48,15 @@ def calcular_vuelto(total, pagado):
 
 def pesos_a_dolares(pesos, cotizacion):
     """Convierte pesos a dólares. dólares = pesos / cotización."""
+    if cotizacion <= 0:
+        raise ValueError("La cotización debe ser mayor que cero.")
     return pesos / cotizacion
 
 
 def dolares_a_pesos(dolares, cotizacion):
     """Convierte dólares a pesos. pesos = dólares * cotización."""
+    if cotizacion <= 0:
+        raise ValueError("La cotización debe ser mayor que cero.")
     return dolares * cotizacion
 
 def calcular_cuotas(precio, cuotas, interes):

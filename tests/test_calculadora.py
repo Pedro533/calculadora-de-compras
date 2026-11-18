@@ -7,6 +7,7 @@ Ejecutar con:
 Cada función de calculadora.py debería tener al menos un test acá.
 """
 import pytest
+
 from calculadora import (
     sumar_compras,
     aplicar_descuento,
@@ -17,7 +18,6 @@ from calculadora import (
     dolares_a_pesos,
     calcular_cuotas,
 )
-
 
 # ----- Sumar compras -----
 
@@ -94,6 +94,15 @@ def test_dolares_a_pesos_cotizacion_1000():
 def test_dolares_a_pesos_con_decimales():
     # US$ 12.5 con cotización 1200 = $15000
     assert dolares_a_pesos(12.5, 1200) == 15000
+
+def test_pesos_a_dolares_cotizacion_cero():
+    with pytest.raises(ValueError):
+        pesos_a_dolares(10000, 0)
+
+
+def test_dolares_a_pesos_cotizacion_cero():
+    with pytest.raises(ValueError):
+        dolares_a_pesos(10, 0)
 
 # ----- Calcular cuotas -----
 
