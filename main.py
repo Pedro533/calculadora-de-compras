@@ -127,6 +127,12 @@ def main():
         elif opcion == "6":
             precio = pedir_numero("Precio de la compra ($): ")
             cuotas = pedir_numero("Cantidad de cuotas: ")
+
+            if cuotas != int(cuotas):
+                print("Error: La cantidad de cuotas debe ser un número entero.")
+                continue
+
+            cuotas = int(cuotas)
             interes = pedir_numero("Interés (%): ")
 
             try:
